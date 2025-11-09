@@ -1,0 +1,4 @@
+Error: Function _ZN4core5slice4sort6stable14driftsort_main17ha89f929a70a45f4cE Stack offset of 4104 exceeded max offset of 4096 by 8 bytes, please minimize large stack variables. Estimated function frame size: 4160 bytes. Exceeding the maximum stack offset may cause undefined behavior during execution.
+
+Error: Function _ZN14regex_automata4meta8strategy3new17hb1e4d0b8fb13f4b7E Stack offset of 5208 exceeded max offset of 4096 by 1112 bytes, please minimize large stack variables. Estimated function frame size: 12416 bytes. Exceeding the maximum stack offset may cause undefined behavior during execution.
+
