@@ -97,5 +97,6 @@ anchor test
 
 # Run frontend locally
 cd ../frontend
+yarn install
 yarn dev
 ```
