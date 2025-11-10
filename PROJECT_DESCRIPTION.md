@@ -86,6 +86,7 @@ Test results: 3 passing, 3 failing (failures due to vault already initialized an
 yarn install
 
 # Build program
+cd anchor_project
 anchor build
 
 # Deploy to devnet
@@ -95,6 +96,6 @@ anchor deploy --provider.cluster devnet
 anchor test
 
 # Run frontend locally
-cd frontend
+cd ../frontend
 yarn dev
 ```
