@@ -1,8 +1,8 @@
-/Users/brianmontiel/coinflip-dapp/target/sbpf-solana-solana/release/deps/libanchor_lang_idl_spec-a07c259883a1a10d.rmeta: /Users/brianmontiel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anchor-lang-idl-spec-0.1.0/src/lib.rs
+/Users/brianmontiel/Downloads/program-networkbm/anchor_project/target/sbpf-solana-solana/release/deps/libanchor_lang_idl_spec-a07c259883a1a10d.rmeta: /Users/brianmontiel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anchor-lang-idl-spec-0.1.0/src/lib.rs
 
-/Users/brianmontiel/coinflip-dapp/target/sbpf-solana-solana/release/deps/libanchor_lang_idl_spec-a07c259883a1a10d.rlib: /Users/brianmontiel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anchor-lang-idl-spec-0.1.0/src/lib.rs
+/Users/brianmontiel/Downloads/program-networkbm/anchor_project/target/sbpf-solana-solana/release/deps/libanchor_lang_idl_spec-a07c259883a1a10d.rlib: /Users/brianmontiel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anchor-lang-idl-spec-0.1.0/src/lib.rs
 
-/Users/brianmontiel/coinflip-dapp/target/sbpf-solana-solana/release/deps/anchor_lang_idl_spec-a07c259883a1a10d.d: /Users/brianmontiel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anchor-lang-idl-spec-0.1.0/src/lib.rs
+/Users/brianmontiel/Downloads/program-networkbm/anchor_project/target/sbpf-solana-solana/release/deps/anchor_lang_idl_spec-a07c259883a1a10d.d: /Users/brianmontiel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anchor-lang-idl-spec-0.1.0/src/lib.rs
 
 /Users/brianmontiel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anchor-lang-idl-spec-0.1.0/src/lib.rs:
 

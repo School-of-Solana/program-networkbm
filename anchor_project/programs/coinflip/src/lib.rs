@@ -15,6 +15,10 @@ pub mod coinflip {
         require!(choice == 0 || choice == 1, CoinflipError::InvalidChoice);
         require!(amount > 0, CoinflipError::InvalidAmount);
 
+        // Check if vault has enough funds to pay out
+        let vault_balance = ctx.accounts.vault.to_account_info().lamports();
+        require!(vault_balance >= amount * 2, CoinflipError::InsufficientFunds);
+
         let transfer_ix = anchor_lang::solana_program::system_instruction::transfer(
             &ctx.accounts.player.key(),
             &ctx.accounts.vault.key(),
@@ -70,4 +74,6 @@ pub enum CoinflipError {
     InvalidChoice,
     #[msg("Invalid bet amount.")]
     InvalidAmount,
+    #[msg("Vault has insufficient funds for payout.")]
+    InsufficientFunds,
 }

@@ -1,7 +1,7 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { Coinflip } from "../target/types/coinflip";
-import { PublicKey, SystemProgram, SYSVAR_CLOCK_PUBKEY } from "@solana/web3.js";
+import { PublicKey, SystemProgram, SYSVAR_CLOCK_PUBKEY, LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { expect } from "chai";
 
 describe("coinflip", () => {
@@ -10,16 +10,36 @@ describe("coinflip", () => {
   const program = anchor.workspace.Coinflip as Program<Coinflip>;
 
   let vaultPda: PublicKey;
+  let vaultInitialized = false;
 
   before(async () => {
     [vaultPda] = PublicKey.findProgramAddressSync(
       [Buffer.from("vault")],
       program.programId
     );
+
+    try {
+      await program.account.vault.fetch(vaultPda);
+      vaultInitialized = true;
+    } catch (err) {}
+
+    if (vaultInitialized) {
+      try {
+        const fundTx = await provider.connection.requestAirdrop(
+          vaultPda,
+          10 * LAMPORTS_PER_SOL
+        );
+        await provider.connection.confirmTransaction(fundTx);
+      } catch (err) {}
+    }
   });
 
   describe("initialize_vault", () => {
-    it("Happy path: Successfully initializes vault", async () => {
+    it("Happy path: Successfully initializes vault", async function() {
+      if (vaultInitialized) {
+        this.skip();
+      }
+
       await program.methods
         .initializeVault()
         .accounts({
@@ -31,10 +51,34 @@ describe("coinflip", () => {
 
       const vaultAccount = await program.account.vault.fetch(vaultPda);
       expect(vaultAccount.bump).to.be.a("number");
-      console.log("Vault PDA:", vaultPda.toBase58());
+      
+      const fundTx = await provider.connection.requestAirdrop(
+        vaultPda,
+        10 * LAMPORTS_PER_SOL
+      );
+      await provider.connection.confirmTransaction(fundTx);
+      vaultInitialized = true;
     });
 
-    it("Unhappy path: Fails on duplicate initialization", async () => {
+    it("Unhappy path: Fails on duplicate initialization", async function() {
+      if (!vaultInitialized) {
+        await program.methods
+          .initializeVault()
+          .accounts({
+            vault: vaultPda,
+            signer: provider.wallet.publicKey,
+            systemProgram: SystemProgram.programId,
+          })
+          .rpc();
+        
+        const fundTx = await provider.connection.requestAirdrop(
+          vaultPda,
+          10 * LAMPORTS_PER_SOL
+        );
+        await provider.connection.confirmTransaction(fundTx);
+        vaultInitialized = true;
+      }
+
       try {
         await program.methods
           .initializeVault()
@@ -52,6 +96,28 @@ describe("coinflip", () => {
   });
 
   describe("flip_coin", () => {
+    before(async () => {
+      if (!vaultInitialized) {
+        try {
+          await program.methods
+            .initializeVault()
+            .accounts({
+              vault: vaultPda,
+              signer: provider.wallet.publicKey,
+              systemProgram: SystemProgram.programId,
+            })
+            .rpc();
+          
+          const fundTx = await provider.connection.requestAirdrop(
+            vaultPda,
+            10 * LAMPORTS_PER_SOL
+          );
+          await provider.connection.confirmTransaction(fundTx);
+          vaultInitialized = true;
+        } catch (err) {}
+      }
+    });
+
     it("Happy path: Successfully processes a valid coin flip", async () => {
       const betAmount = new anchor.BN(100_000_000);
       const choice = 0;

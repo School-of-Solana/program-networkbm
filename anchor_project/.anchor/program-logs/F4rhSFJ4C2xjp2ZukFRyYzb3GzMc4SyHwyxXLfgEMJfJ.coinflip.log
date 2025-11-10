@@ -1,0 +1,30 @@
+Streaming transaction logs mentioning F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ. Confirmed commitment
+Transaction executed in slot 420627643:
+  Signature: EWSmgjsb6mxvcHdgF3JoCU61iK4dthcJUqjNPRgurjqmp9FRcJMT8YctqCB4cPjChKnfo7XFCp54hX7wxMnoBiH
+  Status: Error processing Instruction 0: custom program error: 0x0
+  Log Messages:
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ invoke [1]
+    Program log: Instruction: InitializeVault
+    Program 11111111111111111111111111111111 invoke [2]
+    Allocate: account Address { address: E96VcguT8GRzSU7pym2P8oYWXKJz2D7W1bmVFKCpo4ws, base: None } already in use
+    Program 11111111111111111111111111111111 failed: custom program error: 0x0
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ consumed 5056 of 200000 compute units
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ failed: custom program error: 0x0
+Transaction executed in slot 420627643:
+  Signature: 2Z3qLqtAeaLN44zLTMZoQBB9nT4vabsRX3P2cFPghz9HjaqpmrhUZPviys5fEPm7uSP6n5MgJzFfQKxfsZxT4BKK
+  Status: Error processing Instruction 0: custom program error: 0x1772
+  Log Messages:
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ invoke [1]
+    Program log: Instruction: FlipCoin
+    Program log: AnchorError thrown in programs/coinflip/src/lib.rs:20. Error Code: InsufficientFunds. Error Number: 6002. Error Message: Vault has insufficient funds for payout..
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ consumed 5080 of 200000 compute units
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ failed: custom program error: 0x1772
+Transaction executed in slot 420627643:
+  Signature: 3EyZJmPLRBTYoqQdWMDrx3QrXCYQdjY2CaBxtHzKaUD4w5VL1md1YqUF81pqSHqanBsU5rfYzUhmDFbCXB9b6Weh
+  Status: Error processing Instruction 0: custom program error: 0x1770
+  Log Messages:
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ invoke [1]
+    Program log: Instruction: FlipCoin
+    Program log: AnchorError thrown in programs/coinflip/src/lib.rs:15. Error Code: InvalidChoice. Error Number: 6000. Error Message: Invalid choice. Must be 0 or 1..
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ consumed 4997 of 200000 compute units
+    Program F4rhSFJ4C2xjp2ZukFRyYzb3GzMc4SyHwyxXLfgEMJfJ failed: custom program error: 0x1770

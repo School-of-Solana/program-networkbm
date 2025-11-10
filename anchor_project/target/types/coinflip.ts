@@ -137,6 +137,11 @@ export type Coinflip = {
       "code": 6001,
       "name": "invalidAmount",
       "msg": "Invalid bet amount."
+    },
+    {
+      "code": 6002,
+      "name": "insufficientFunds",
+      "msg": "Vault has insufficient funds for payout."
     }
   ],
   "types": [

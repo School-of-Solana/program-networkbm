@@ -131,6 +131,11 @@
       "code": 6001,
       "name": "InvalidAmount",
       "msg": "Invalid bet amount."
+    },
+    {
+      "code": 6002,
+      "name": "InsufficientFunds",
+      "msg": "Vault has insufficient funds for payout."
     }
   ],
   "types": [
