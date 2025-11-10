@@ -66,7 +66,7 @@ Test results: 3 passing, 3 failing (failures due to vault already initialized an
 ## How to Use
 
 1. **Visit the live demo** at the URL above
-2. **Connect your wallet** (Phantom or Solflare)
+2. **Connect your wallet**
 3. **Ensure you're on Devnet** with some devnet SOL
 4. **Enter bet amount** in SOL
 5. **Choose Heads or Tails**
